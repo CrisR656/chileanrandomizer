@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favorite Chilean</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #d52b1e; /* Chilean flag red */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .profile-info {
+            text-align: center;
+        }
+        
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #003399; /* Chilean flag blue */
+        }
+        
+        .zodiac {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #d52b1e; /* Chilean flag red */
+        }
+        
+        .description {
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #d52b1e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        button:hover {
+            background-color: #b52219;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Favorite Chilean</h1>
+        <div class="profile" id="profile">
+            <div id="image-container" style="display: none;">
+                <img id="chilean-image" class="profile-image" src="/api/placeholder/250/250" alt="Famous Chilean">
+            </div>
+            <div class="profile-info">
+                <div id="chilean-name" class="name">Find your favorite Chilean!</div>
+                <div id="chilean-zodiac" class="zodiac"></div>
+                <div id="chilean-description" class="description">Click the button below to be randomly assigned a notable Chilean figure to appreciate at the party. You'll see their picture, learn about who they are, and discover their zodiac sign!</div>
+            </div>
+        </div>
+        <button id="random-button">Find My Chilean!</button>
+        <div class="footer">
+            Happy Birthday! May 13th picnic - come dressed as your new favorite Chilean!
+        </div>
+    </div>
+    
+    <script>
+        // Array of notable Chileans with their information
+        const chileans = [
+            {
+                name: "Pablo Neruda",
+                image: "https://upload.wikimedia.org/wikipedia/commons/8/86/Pablo_Neruda_1963.jpg",
+                description: "Nobel Prize-winning poet known for his love sonnets and political activism. His work has been translated into dozens of languages.",
+                zodiac: "Cancer (July 12, 1904)"
+            },
+            {
+                name: "Gabriela Mistral",
+                image: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gabriela_Mistral_1945.jpg",
+                description: "Poet, diplomat and educator who became the first Latin American woman to receive the Nobel Prize in Literature in 1945.",
+                zodiac: "Aries (April 7, 1889)"
+            },
+            {
+                name: "Isabel Allende",
+                image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Isabel_Allende_-_001.jpg",
+                description: "One of the most widely read Spanish-language authors, known for novels like 'The House of the Spirits' that blend magical realism with history.",
+                zodiac: "Leo (August 2, 1942)"
+            },
+            {
+                name: "Claudio Bravo",
+                image: "/api/placeholder/250/250",
+                description: "Renowned hyperrealist painter known for his remarkably detailed still lifes, portraits and package paintings.",
+                zodiac: "Scorpio (November 8, 1936)"
+            },
+            {
+                name: "Violeta Parra",
+                image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Violeta_Parra%2C_Fundaci%C3%B3n_Violeta_Parra.jpg",
+                description: "Folk musician, artist and ethnomusicologist who pioneered the Nueva Canción Chilena (Chilean New Song) movement.",
+                zodiac: "Libra (October 4, 1917)"
+            },
+            {
+                name: "Arturo Prat",
+                image: "/api/placeholder/250/250",
+                description: "Naval officer and national hero who died in the Naval Battle of Iquique during the War of the Pacific in 1879.",
+                zodiac: "Aries (April 4, 1848)"
+            },
+            {
+                name: "Michelle Bachelet",
+                image: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Retrato_Oficial_Presidenta_Michelle_Bachelet.jpg",
+                description: "Politician who served as the first female President of Chile from 2006 to 2010 and again from 2014 to 2018.",
+                zodiac: "Virgo (September 29, 1951)"
+            },
+            {
+                name: "Alejandro Jodorowsky",
+                image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Alejandro_Jodorowsky_Cannes_2016.jpg",
+                description: "Filmmaker, playwright, actor and author known for surrealist films and his work in the field of psychomagic.",
+                zodiac: "Pisces (February 17, 1929)"
+            },
+            {
+                name: "Roberto Matta",
+                image: "/api/placeholder/250/250",
+                description: "Influential surrealist painter and a seminal figure in abstract expressionism and surrealism.",
+                zodiac: "Scorpio (November 11, 1911)"
+            },
+            {
+                name: "Marcelo Bielsa",
+                image: "/api/placeholder/250/250",
+                description: "Renowned football manager known for his attacking style of play and influential tactical innovations.",
+                zodiac: "Leo (July 21, 1955)"
+            },
+            {
+                name: "Alexis Sánchez",
+                image: "/api/placeholder/250/250",
+                description: "Professional footballer who has played for clubs like Barcelona, Arsenal, and Inter Milan, and is Chile's all-time leading goalscorer.",
+                zodiac: "Sagittarius (December 19, 1988)"
+            },
+            {
+                name: "Claudio Arrau",
+                image: "/api/placeholder/250/250",
+                description: "Classical pianist widely considered one of the greatest pianists of the twentieth century, known for his interpretations of Beethoven.",
+                zodiac: "Aquarius (February 6, 1903)"
+            },
+            {
+                name: "Cecilia Vicuña",
+                image: "/api/placeholder/250/250",
+                description: "Poet, artist, and filmmaker whose work addresses ecological destruction, human rights, and cultural homogenization. Known for her 'precarious' works and performances.",
+                zodiac: "Capricorn (January 22, 1948)"
+            },
+            {
+                name: "Juan Luis Martínez",
+                image: "/api/placeholder/250/250",
+                description: "Experimental poet and visual artist associated with the Chilean neo-avant-garde. His major work 'La nueva novela' (1977) challenges traditional notions of authorship and books.",
+                zodiac: "Gemini (June 7, 1942)"
+            },
+            {
+                name: "María Luisa Bombal",
+                image: "/api/placeholder/250/250",
+                description: "Influential novelist and short story writer whose works like 'The Final Mist' explored the inner lives of female characters, often blending reality and fantasy.",
+                zodiac: "Gemini (June 8, 1910)"
+            },
+            {
+                name: "Pailita",
+                image: "/api/placeholder/250/250",
+                description: "Rising urban music star who has become one of Chile's most streamed artists with hits that blend reggaeton, trap, and other urban styles.",
+                zodiac: "Taurus (May 4, 2000)"
+            },
+            {
+                name: "Rafa Araneda",
+                image: "/api/placeholder/250/250",
+                description: "Popular television host and presenter known for shows like 'Rojo' and 'Venga Conmigo,' who has become one of Chile's most recognized media personalities.",
+                zodiac: "Pisces (March 18, 1969)"
+            },
+            {
+                name: "Felipe Camiroaga",
+                image: "/api/placeholder/250/250",
+                description: "Beloved television presenter and actor who hosted 'Buenos Días a Todos' for years before his tragic death in 2011. Known as 'El Halcón de Chicureo.'",
+                zodiac: "Libra (October 8, 1966)"
+            },
+            {
+                name: "Víctor Jara",
+                image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Victor_Jara.jpg",
+                description: "Folk singer, songwriter, poet, theatre director and political activist who became a powerful symbol of resistance after his murder during the 1973 Chilean coup.",
+                zodiac: "Virgo (September 28, 1932)"
+            },
+            {
+                name: "Mon Laferte",
+                image: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Mon_Laferte_-_01.jpg",
+                description: "Multi-award winning singer-songwriter who blends various genres including rock, bolero, and electronic music. Known for her powerful voice and socially conscious lyrics.",
+                zodiac: "Taurus (May 2, 1983)"
+            },
+            {
+                name: "Pedro Pascal",
+                image: "https://upload.wikimedia.org/wikipedia/commons/5/54/Pedro_Pascal_by_Gage_Skidmore.jpg",
+                description: "Actor who gained international fame for roles in 'Game of Thrones,' 'Narcos,' 'The Mandalorian,' and 'The Last of Us.' Born in Santiago before his family fled the dictatorship.",
+                zodiac: "Aries (April 2, 1975)"
+            },
+            {
+                name: "Nicanor Parra",
+                image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Nicanor_Parra_2011.jpg",
+                description: "Influential poet who developed what he called 'antipoetry,' a form that rejected the elaborate metaphors and stylized language of traditional poetry in favor of direct expression.",
+                zodiac: "Virgo (September 5, 1914)"
+            },
+            {
+                name: "José Donoso",
+                image: "/api/placeholder/250/250",
+                description: "Novelist and short story writer associated with the Latin American Boom. His novel 'The Obscene Bird of Night' is considered a landmark in magical realism.",
+                zodiac: "Libra (October 5, 1924)"
+            },
+            {
+                name: "Cote de Pablo",
+                image: "/api/placeholder/250/250",
+                description: "Actress and singer best known for her role as Ziva David on the American television series 'NCIS,' where she showed off both her acting skills and her musical talent.",
+                zodiac: "Scorpio (November 12, 1979)"
+            }
+        ];
+        
+        // Function to select a random Chilean
+        function selectRandomChilean() {
+            const randomIndex = Math.floor(Math.random() * chileans.length);
+            const selectedChilean = chileans[randomIndex];
+            
+            // Show the image container
+            document.getElementById("image-container").style.display = "block";
+            
+            // Update the DOM with the selected Chilean's information
+            document.getElementById("chilean-image").src = selectedChilean.image;
+            document.getElementById("chilean-image").alt = selectedChilean.name;
+            document.getElementById("chilean-name").textContent = selectedChilean.name;
+            document.getElementById("chilean-zodiac").textContent = selectedChilean.zodiac;
+            document.getElementById("chilean-description").textContent = selectedChilean.description;
+        }
+        
+        // Add event listener to the button
+        document.getElementById("random-button").addEventListener("click", selectRandomChilean);
+    </script>
+</body>
+</html>
