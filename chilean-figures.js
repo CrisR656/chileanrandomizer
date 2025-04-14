@@ -1,5 +1,5 @@
 // Chilean figures data
-var chileanFigures = [
+const chileanFigures = [
   // Literary Figures
   {
     name: "Gabriela Mistral",
