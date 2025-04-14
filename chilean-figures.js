@@ -1,4 +1,5 @@
-const chileanFigures = [
+// Chilean figures data
+var chileanFigures = [
   // Literary Figures
   {
     name: "Gabriela Mistral",
