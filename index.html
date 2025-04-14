@@ -212,6 +212,103 @@
     
     <!-- Include the external data file -->
     <script src="chilean-figures.js"></script>
+
+    // Function to show a random figure
+function showRandomFigure() {
+    // Hide gallery, show random figure
+    galleryDiv.style.display = 'none';
+    randomFigureDiv.style.display = 'block';
+    
+    // Select a random figure
+    const randomIndex = Math.floor(Math.random() * chileanFigures.length);
+    const figure = chileanFigures[randomIndex];
+    
+    // Create HTML for the figure
+    let html = `
+        <div class="figure-card">
+            <img src="${figure.image}" alt="${figure.name}" class="figure-image">
+            <div class="figure-info">
+                <h2>${figure.name}</h2>
+                <p class="zodiac">${figure.zodiac}</p>
+                <p>${figure.bio}</p>
+                <div class="key-traits">
+                    ${figure.traits.map(trait => `<span class="trait">${trait}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+        <button class="back-button" onclick="showMainMenu()">Back to Menu</button>
+    `;
+    
+    // Update the DOM
+    randomFigureDiv.innerHTML = html;
+}
+
+// Function to show the gallery of all figures
+function showGallery() {
+    // Hide random figure, show gallery
+    randomFigureDiv.style.display = 'none';
+    galleryDiv.style.display = 'block';
+    
+    // Clear the gallery container
+    galleryContainer.innerHTML = '';
+    
+    // Create HTML for each figure in the gallery
+    chileanFigures.forEach((figure, index) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.innerHTML = `
+            <img src="${figure.image}" alt="${figure.name}" class="gallery-image">
+            <div class="gallery-name">${figure.name}</div>
+        `;
+        
+        // Add click event to show details in modal
+        galleryItem.addEventListener('click', () => showFigureDetails(index));
+        
+        // Add to gallery container
+        galleryContainer.appendChild(galleryItem);
+    });
+    
+    // Add back button
+    const backButton = document.createElement('button');
+    backButton.className = 'back-button';
+    backButton.textContent = 'Back to Menu';
+    backButton.addEventListener('click', showMainMenu);
+    galleryDiv.appendChild(backButton);
+}
+
+// Function to show main menu
+function showMainMenu() {
+    randomFigureDiv.style.display = 'none';
+    galleryDiv.style.display = 'none';
+    
+    // Remove any back buttons from gallery
+    const backButtons = galleryDiv.querySelectorAll('.back-button');
+    backButtons.forEach(button => button.remove());
+}
+
+// Function to show figure details in modal
+function showFigureDetails(index) {
+    const figure = chileanFigures[index];
+    
+    // Create HTML for the modal
+    let html = `
+        <div class="figure-card">
+            <img src="${figure.image}" alt="${figure.name}" class="figure-image">
+            <div class="figure-info">
+                <h2>${figure.name}</h2>
+                <p class="zodiac">${figure.zodiac}</p>
+                <p>${figure.bio}</p>
+                <div class="key-traits">
+                    ${figure.traits.map(trait => `<span class="trait">${trait}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Update modal content and display it
+     modalContent.innerHTML = html;
+    modal.style.display = 'block';
+}
     
     <script>
         // Wait for the DOM and external scripts to load
