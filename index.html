@@ -210,153 +210,155 @@
         </div>
     </div>
     
-    <!-- Include the external data file -->
-    <script src="chilean-figures.js"></script>
-
-    // Function to show a random figure
-function showRandomFigure() {
-    // Hide gallery, show random figure
-    galleryDiv.style.display = 'none';
-    randomFigureDiv.style.display = 'block';
-    
-    // Select a random figure
-    const randomIndex = Math.floor(Math.random() * chileanFigures.length);
-    const figure = chileanFigures[randomIndex];
-    
-    // Create HTML for the figure
-    let html = `
-        <div class="figure-card">
-            <img src="${figure.image}" alt="${figure.name}" class="figure-image">
-            <div class="figure-info">
-                <h2>${figure.name}</h2>
-                <p class="zodiac">${figure.zodiac}</p>
-                <p>${figure.bio}</p>
-                <div class="key-traits">
-                    ${figure.traits.map(trait => `<span class="trait">${trait}</span>`).join('')}
-                </div>
-            </div>
-        </div>
-        <button class="back-button" onclick="showMainMenu()">Back to Menu</button>
-    `;
-    
-    // Update the DOM
-    randomFigureDiv.innerHTML = html;
-}
-
-// Function to show the gallery of all figures
-function showGallery() {
-    // Hide random figure, show gallery
-    randomFigureDiv.style.display = 'none';
-    galleryDiv.style.display = 'block';
-    
-    // Clear the gallery container
-    galleryContainer.innerHTML = '';
-    
-    // Create HTML for each figure in the gallery
-    chileanFigures.forEach((figure, index) => {
-        const galleryItem = document.createElement('div');
-        galleryItem.className = 'gallery-item';
-        galleryItem.innerHTML = `
-            <img src="${figure.image}" alt="${figure.name}" class="gallery-image">
-            <div class="gallery-name">${figure.name}</div>
-        `;
-        
-        // Add click event to show details in modal
-        galleryItem.addEventListener('click', () => showFigureDetails(index));
-        
-        // Add to gallery container
-        galleryContainer.appendChild(galleryItem);
-    });
-    
-    // Add back button
-    const backButton = document.createElement('button');
-    backButton.className = 'back-button';
-    backButton.textContent = 'Back to Menu';
-    backButton.addEventListener('click', showMainMenu);
-    galleryDiv.appendChild(backButton);
-}
-
-// Function to show main menu
-function showMainMenu() {
-    randomFigureDiv.style.display = 'none';
-    galleryDiv.style.display = 'none';
-    
-    // Remove any back buttons from gallery
-    const backButtons = galleryDiv.querySelectorAll('.back-button');
-    backButtons.forEach(button => button.remove());
-}
-
-// Function to show figure details in modal
-function showFigureDetails(index) {
-    const figure = chileanFigures[index];
-    
-    // Create HTML for the modal
-    let html = `
-        <div class="figure-card">
-            <img src="${figure.image}" alt="${figure.name}" class="figure-image">
-            <div class="figure-info">
-                <h2>${figure.name}</h2>
-                <p class="zodiac">${figure.zodiac}</p>
-                <p>${figure.bio}</p>
-                <div class="key-traits">
-                    ${figure.traits.map(trait => `<span class="trait">${trait}</span>`).join('')}
-                </div>
-            </div>
-        </div>
-    `;
-    
-    // Update modal content and display it
-     modalContent.innerHTML = html;
-    modal.style.display = 'block';
-}
-    
     <script>
-        // Wait for the DOM and external scripts to load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if chileanFigures is defined
-            if (typeof chileanFigures === 'undefined') {
-                console.error('Error: chileanFigures is not defined. Make sure chilean-figures.js is loaded correctly.');
-                return;
+        // Sample data for Chilean figures
+        const chileanFigures = [
+            {
+                name: "Pedro Lemebel",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Lemebel_en_dictadura.jpg/330px-Lemebel_en_dictadura.jpg",
+                zodiac: "Scorpio",
+                bio: "Pedro Lemebel (1952-2015) was a Chilean writer, performance artist, and activist. He was known for his chronicles and novels that focused on Chilean marginality, homosexuality, and left-wing politics during the Pinochet dictatorship.",
+                traits: ["Writer", "Activist", "Performance Artist", "LGBTQ+ Icon"]
+            },
+            {
+                name: "Vicente Huidobro",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Vicente_Huidobro.jpg/330px-Vicente_Huidobro.jpg",
+                zodiac: "Capricorn",
+                bio: "Vicente Huidobro (1893-1948) was a Chilean poet born to an aristocratic family. He promoted the avant-garde literary movement in Chile and founded the Creationism movement, which emphasized the poet's role as a creator.",
+                traits: ["Poet", "Avant-garde", "Creationism", "International"]
+            },
+            {
+                name: "Gabriela Mistral",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Gabriela_Mistral_1945.jpg/330px-Gabriela_Mistral_1945.jpg",
+                zodiac: "Aries",
+                bio: "Gabriela Mistral (1889-1957) was a Chilean poet-diplomat, educator, and humanist. In 1945, she became the first Latin American author to receive the Nobel Prize in Literature.",
+                traits: ["Poet", "Nobel Laureate", "Educator", "Diplomat"]
+            },
+            {
+                name: "Pablo Neruda",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Pablo_Neruda_1963.jpg/330px-Pablo_Neruda_1963.jpg",
+                zodiac: "Cancer",
+                bio: "Pablo Neruda (1904-1973) was a Chilean poet-diplomat and politician who won the Nobel Prize for Literature in 1971. He is known for his surrealist poems, historical epics, and love poetry.",
+                traits: ["Poet", "Nobel Laureate", "Political Activist", "Diplomat"]
             }
+        ];
+
+        // DOM elements
+        const randomizeButton = document.getElementById('randomizeButton');
+        const browseButton = document.getElementById('browseButton');
+        const randomFigureDiv = document.getElementById('randomFigure');
+        const galleryDiv = document.getElementById('gallery');
+        const galleryContainer = document.getElementById('galleryContainer');
+        const modal = document.getElementById('figureModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeButton = document.querySelector('.close-button');
+        
+        // Function to show a random figure
+        function showRandomFigure() {
+            // Hide gallery, show random figure
+            galleryDiv.style.display = 'none';
+            randomFigureDiv.style.display = 'block';
             
-            // DOM elements
-            const randomizeButton = document.getElementById('randomizeButton');
-            const browseButton = document.getElementById('browseButton');
-            const randomFigureDiv = document.getElementById('randomFigure');
-            const galleryDiv = document.getElementById('gallery');
-            const galleryContainer = document.getElementById('galleryContainer');
-            const modal = document.getElementById('figureModal');
-            const modalContent = document.getElementById('modalContent');
-            const closeButton = document.querySelector('.close-button');
+            // Select a random figure
+            const randomIndex = Math.floor(Math.random() * chileanFigures.length);
+            const figure = chileanFigures[randomIndex];
             
-            // Event listeners
-            randomizeButton.addEventListener('click', showRandomFigure);
-            browseButton.addEventListener('click', showGallery);
-            closeButton.addEventListener('click', () => modal.style.display = 'none');
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
+            // Create HTML for the figure
+            let html = `
+                <div class="figure-card">
+                    <img src="${figure.image}" alt="${figure.name}" class="figure-image">
+                    <div class="figure-info">
+                        <h2>${figure.name}</h2>
+                        <p class="zodiac">${figure.zodiac}</p>
+                        <p>${figure.bio}</p>
+                        <div class="key-traits">
+                            ${figure.traits.map(trait => `<span class="trait">${trait}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMainMenu()">Back to Menu</button>
+            `;
+            
+            // Update the DOM
+            randomFigureDiv.innerHTML = html;
+        }
+
+        // Function to show the gallery of all figures
+        function showGallery() {
+            // Hide random figure, show gallery
+            randomFigureDiv.style.display = 'none';
+            galleryDiv.style.display = 'block';
+            
+            // Clear the gallery container
+            galleryContainer.innerHTML = '';
+            
+            // Create HTML for each figure in the gallery
+            chileanFigures.forEach((figure, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `
+                    <img src="${figure.image}" alt="${figure.name}" class="gallery-image">
+                    <div class="gallery-name">${figure.name}</div>
+                `;
+                
+                // Add click event to show details in modal
+                galleryItem.addEventListener('click', () => showFigureDetails(index));
+                
+                // Add to gallery container
+                galleryContainer.appendChild(galleryItem);
             });
-        
-        
-        // The Pedro Lemebel and Vicente Huidobro data has been moved to the chilean-figures.js file
-        
-        // Parse the Chilean figures data from the document
-        function parseChileanData() {
-            // This function would parse your text data into the appropriate format
-            // Since you'll be adding this manually, you can leave it empty
-            // or implement it later if you want to automate the process
+            
+            // Add back button
+            const backButton = document.createElement('button');
+            backButton.className = 'back-button';
+            backButton.textContent = 'Back to Menu';
+            backButton.addEventListener('click', showMainMenu);
+            galleryDiv.appendChild(backButton);
         }
 
-        // Parse the Chilean figures data from the document
-        function parseChileanData() {
-            // This function would parse your text data into the appropriate format
-            // Since you'll be adding this manually, you can leave it empty
-            // or implement it later if you want to automate the process
+        // Function to show main menu
+        function showMainMenu() {
+            randomFigureDiv.style.display = 'none';
+            galleryDiv.style.display = 'none';
+            
+            // Remove any back buttons from gallery
+            const backButtons = galleryDiv.querySelectorAll('.back-button');
+            backButtons.forEach(button => button.remove());
         }
 
-        // The Pedro Lemebel and Vicente Huidobro data has been moved to the chilean-figures.js file
+        // Function to show figure details in modal
+        function showFigureDetails(index) {
+            const figure = chileanFigures[index];
+            
+            // Create HTML for the modal
+            let html = `
+                <div class="figure-card">
+                    <img src="${figure.image}" alt="${figure.name}" class="figure-image">
+                    <div class="figure-info">
+                        <h2>${figure.name}</h2>
+                        <p class="zodiac">${figure.zodiac}</p>
+                        <p>${figure.bio}</p>
+                        <div class="key-traits">
+                            ${figure.traits.map(trait => `<span class="trait">${trait}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Update modal content and display it
+            modalContent.innerHTML = html;
+            modal.style.display = 'block';
+        }
+        
+        // Event listeners
+        randomizeButton.addEventListener('click', showRandomFigure);
+        browseButton.addEventListener('click', showGallery);
+        closeButton.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
