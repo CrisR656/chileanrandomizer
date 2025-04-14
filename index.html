@@ -417,6 +417,48 @@
             margin-right: 10px;
             width: 200px;
         }
+        
+        /* Mobile responsiveness improvements */
+        @media (max-width: 600px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                width: 100%;
+                max-width: none;
+                margin-bottom: 10px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .filter-button {
+                margin: 3px;
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .search-box {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .question {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -692,6 +734,255 @@
                 description: "The neo-avant-garde poet who somehow slipped through the dictatorship's censors with her experimental work exploring womanhood, prehistoric cultures, and the limits of language. Has been quietly collecting awards and blowing minds since the 1980s.",
                 zodiac: "Virgo (September 15, 1943)",
                 category: "literary",
+                traits: {
+                    demeanor: "reserved",
+                    expression: "experimental",
+                    politics: "artistic",
+                    passion: "idealistic"
+                },
+                relatedTraits: {
+                    demeanor: ["composed"],
+                    expression: ["poetic", "complex"],
+                    politics: ["revolutionary", "harmonious"],
+                    passion: ["deep", "cerebral"]
+                }
+            },
+            {
+                name: "Diamela Eltit",
+                image: "images/diamela-eltit.jpg",
+                description: "The experimental novelist who once cut herself in a brothel and called it performance art. Her dense, fragmented prose drove the dictators crazy because they couldn't understand it well enough to censor it. Academics worldwide go gaga for her.",
+                zodiac: "Virgo (August 24, 1947)",
+                category: "literary",
+                traits: {
+                    demeanor: "provocative",
+                    expression: "provocative",
+                    politics: "revolutionary",
+                    passion: "extreme"
+                },
+                relatedTraits: {
+                    demeanor: ["intense"],
+                    expression: ["experimental", "complex"],
+                    politics: ["chaotic", "artistic"],
+                    passion: ["intense", "cerebral"]
+                }
+            },
+            {
+                name: "Alone (Hernán Díaz Arrieta)",
+                image: "images/alone.jpg",
+                description: "The acid-tongued literary critic whose weekly column could make or break a writer's career. His devastating pen name says it all—forever alone with his judgmental opinions. Could dismiss an author's entire life's work with a single snarky paragraph. The Simon Cowell of Chilean letters.",
+                zodiac: "Taurus (May 11, 1891)",
+                category: "literary",
+                traits: {
+                    demeanor: "confrontational",
+                    expression: "disciplined",
+                    politics: "traditional",
+                    passion: "cerebral"
+                },
+                relatedTraits: {
+                    demeanor: ["provocative"],
+                    expression: ["ironic"],
+                    politics: ["chaotic"],
+                    passion: ["intense"]
+                }
+            },
+            {
+                name: "Elvira Hernández",
+                image: "images/elvira-hernandez.jpg",
+                description: "The dissident poet who wrote 'La bandera de Chile' after being detained by Pinochet's secret police. Her samizdat verses circulated underground for a decade before publishing. Took a pen name to avoid further persecution. Refuses to call herself neo-avant-garde.",
+                zodiac: "Cancer (July 2, 1951)",
+                category: "literary",
+                traits: {
+                    demeanor: "reserved",
+                    expression: "provocative",
+                    politics: "revolutionary",
+                    passion: "idealistic"
+                },
+                relatedTraits: {
+                    demeanor: ["intense"],
+                    expression: ["experimental", "complex"],
+                    politics: ["chaotic", "artistic"],
+                    passion: ["deep", "extreme"]
+                }
+            },
+            {
+                name: "Bruno Vidal",
+                image: "images/bruno-vidal.jpg",
+                description: "The poet who adopted the persona of a fascist torturer to expose Chile's collective trauma. His meticulously crafted right-wing psychopath act fooled many into thinking he was actually a monster. Literary performance art at its most disturbing and brilliant.",
+                zodiac: "Unknown (birth date classified)",
+                category: "literary",
+                traits: {
+                    demeanor: "provocative",
+                    expression: "provocative",
+                    politics: "chaotic",
+                    passion: "extreme"
+                },
+                relatedTraits: {
+                    demeanor: ["intense", "confrontational"],
+                    expression: ["experimental", "ironic"],
+                    politics: ["revolutionary", "artistic"],
+                    passion: ["intense", "cerebral"]
+                }
+            },
+            // Musical Figures
+            {
+                name: "Violeta Parra",
+                image: "images/violeta-parra.jpg",
+                description: "The quintessential Chilean folk singer, a poet of singular lucidity, a lover of unbridled passion, and perhaps the most influential Chilean artist of the 20th century. A favorite Chilean if there ever was one.",
+                zodiac: "Libra (October 4, 1917)",
+                category: "musical",
+                traits: {
+                    demeanor: "composed",
+                    expression: "poetic",
+                    politics: "harmonious",
+                    passion: "deep"
+                },
+                relatedTraits: {
+                    demeanor: ["reserved", "intense"],
+                    expression: ["disciplined", "popular"],
+                    politics: ["artistic", "revolutionary"],
+                    passion: ["intense", "idealistic"]
+                }
+            },
+            {
+                name: "Víctor Jara",
+                image: "images/victor-jara.jpg",
+                description: "The folk singer who became a martyr when Pinochet's goons killed him in the national stadium after breaking his hands. Now the ultimate t-shirt icon and the name dropped by every leftist trying to seem cultured. His music actually slaps though.",
+                zodiac: "Virgo (September 28, 1932)",
+                category: "musical",
+                traits: {
+                    demeanor: "composed",
+                    expression: "popular",
+                    politics: "revolutionary",
+                    passion: "idealistic"
+                },
+                relatedTraits: {
+                    demeanor: ["intense", "provocative"],
+                    expression: ["poetic", "disciplined"],
+                    politics: ["artistic", "chaotic"],
+                    passion: ["deep", "extreme"]
+                }
+            },
+           {
+                name: "Mon Laferte",
+                image: "images/mon-laferte.jpg",
+                description: "The tattooed chanteuse who went from Chilean talent show contestant to Latin Grammy winner. Bounces between rock, bolero, and ranchera like she's channel surfing. Will protest topless if the situation demands it. We stan a versatile queen.",
+                zodiac: "Taurus (May 2, 1983)",
+                category: "musical",
+                traits: {
+                    demeanor: "provocative",
+                    expression: "experimental",
+                    politics: "revolutionary",
+                    passion: "intense"
+                },
+                relatedTraits: {
+                    demeanor: ["expressive"],
+                    expression: ["popular", "poetic"],
+                    politics: ["artistic", "chaotic"],
+                    passion: ["deep", "extreme"]
+                }
+            },
+            {
+                name: "Jorge González",
+                image: "images/jorge-gonzalez.jpg",
+                description: "Fearless frontman of Los Prisioneros who wrote anthems of resistance during the Pinochet era. Part punk prophet, part electronic pioneer, he's suffered a stroke but refuses to die. The most important voice in Chilean rock, even when he can barely speak.",
+                zodiac: "Sagittarius (December 6, 1964)",
+                category: "musical",
+                traits: {
+                    demeanor: "confrontational",
+                    expression: "provocative",
+                    politics: "revolutionary",
+                    passion: "idealistic"
+                },
+                relatedTraits: {
+                    demeanor: ["intense", "provocative"],
+                    expression: ["experimental", "poetic"],
+                    politics: ["chaotic"],
+                    passion: ["extreme", "deep"]
+                }
+            },
+            {
+                name: "Ana Tijoux",
+                image: "images/ana-tijoux.jpg",
+                description: "The French-Chilean hip-hop firebrand whose socially conscious lyrics have been called the spiritual heir to Violeta Parra. Raps about feminism, inequality, and imperialism while sampling Andean folk instruments. Made Latin America fall in love with hip-hop.",
+                zodiac: "Gemini (June 12, 1977)",
+                category: "musical",
+                traits: {
+                    demeanor: "provocative",
+                    expression: "popular",
+                    politics: "revolutionary",
+                    passion: "idealistic"
+                },
+                relatedTraits: {
+                    demeanor: ["composed", "intense"],
+                    expression: ["poetic", "experimental"],
+                    politics: ["artistic", "chaotic"],
+                    passion: ["deep", "extreme"]
+                }
+            },
+            {
+                name: "Margot Loyola",
+                image: "images/margot-loyola.jpg",
+                description: "The formidable folklorist who traveled every inch of Chile documenting traditional music and dances when no one else cared. Performed and taught for seven decades. Made cuecas cool before it was cool. The spiritual grandmother to Víctor Jara and all Chilean folk.",
+                zodiac: "Virgo (September 15, 1918)",
+                category: "musical",
+                traits: {
+                    demeanor: "composed",
+                    expression: "disciplined",
+                    politics: "traditional",
+                    passion: "steady"
+                },
+                relatedTraits: {
+                    demeanor: ["reserved"],
+                    expression: ["popular"],
+                    politics: ["harmonious", "artistic"],
+                    passion: ["deep", "idealistic"]
+                }
+            },
+            {
+                name: "Pailita",
+                image: "images/pailita.jpg",
+                description: "The Gen Z icon who went from recording songs on his phone to headlining festivals. His street cred is only matched by his ability to make middle-aged Chileans say 'what is that noise?' A cultural reset in a snapback.",
+                zodiac: "Taurus (May 4, 2000)",
+                category: "musical",
+                traits: {
+                    demeanor: "provocative",
+                    expression: "experimental",
+                    politics: "chaotic",
+                    passion: "playful"
+                },
+                relatedTraits: {
+                    demeanor: ["expressive", "confrontational"],
+                    expression: ["popular"],
+                    politics: ["revolutionary"],
+                    passion: ["intense", "extreme"]
+                }
+            },
+            // Visual Artists
+            {
+                name: "Roberto Matta",
+                image: "images/roberto-matta.jpg",
+                description: "Chile's best 20th century painter. 'Nuff said.",
+                zodiac: "Scorpio (November 11, 1911)",
+                category: "visual_artist",
+                traits: {
+                    demeanor: "reserved",
+                    expression: "experimental",
+                    politics: "artistic",
+                    passion: "intense"
+                },
+                relatedTraits: {
+                    demeanor: ["composed", "intense"],
+                    expression: ["grandiose", "surreal"],
+                    politics: ["revolutionary", "chaotic"],
+                    passion: ["deep", "extreme"]
+                }
+            },
+            {
+                name: "Cecilia Vicuña",
+                image: "images/cecilia-vicuna.jpg",
+                description: "One of Chile's top experimental poets became one of New York's top experimental visual artists.",
+                zodiac: "Capricorn (January 22, 1948)",
+                category: "visual_artist",
                 traits: {
                     demeanor: "reserved",
                     expression: "experimental",
@@ -1015,779 +1306,19 @@
             }
         ];
         
-        // Question configurations - enhanced with more nuanced options
-        const questions = [
-            {
-                id: "q1",
-                text: "Someone introduces themselves at a party. You respond by:",
-                options: [
-                    { text: "Smiling politely and making pleasant small talk", value: "composed", category: "demeanor" },
-                    { text: "Launching into a detailed story about your life", value: "expressive", category: "demeanor" },
-                    { text: "Observing silently before deciding how to engage", value: "reserved", category: "demeanor" },
-                    { text: "Making an outrageous claim just to see their reaction", value: "provocative", category: "demeanor" },
-                    { text: "Challenging them to prove they're actually interesting", value: "confrontational", category: "demeanor" }
-                ]
-            },
-            {
-                id: "q2",
-                text: "If you could change one thing about society, it would be:",
-                options: [
-                    { text: "More respect for tradition and established values", value: "traditional", category: "politics" },
-                    { text: "Greater artistic freedom and creative exploration", value: "artistic", category: "politics" },
-                    { text: "Complete revolution of existing power structures", value: "revolutionary", category: "politics" },
-                    { text: "Less conflict and more harmony between people", value: "harmonious", category: "politics" },
-                    { text: "Nothing - chaos and conflict drive progress", value: "chaotic", category: "politics" },
-                    { text: "Reconnection with indigenous wisdom and practices", value: "indigenous", category: "politics" }
-                ]
-            },
-            {
-                id: "q3",
-                text: "Your approach to creative expression is best described as:",
-                options: [
-                    { text: "Meticulous and disciplined", value: "disciplined", category: "expression" },
-                    { text: "Spontaneous and experimental", value: "experimental", category: "expression" },
-                    { text: "Accessible and crowd-pleasing", value: "popular", category: "expression" },
-                    { text: "Deliberately disturbing or challenging", value: "provocative", category: "expression" },
-                    { text: "Monumental and grandiose", value: "grandiose", category: "expression" },
-                    { text: "Lyrical and filled with emotion", value: "poetic", category: "expression" },
-                    { text: "Intellectually complex and layered", value: "complex", category: "expression" },
-                    { text: "Ironic and satirical", value: "ironic", category: "expression" },
-                    { text: "Dreamlike and otherworldly", value: "surreal", category: "expression" }
-                ]
-            },
-            {
-                id: "q4",
-                text: "Your friends would most likely describe you as someone who is:",
-                options: [
-                    { text: "Reliable and consistent", value: "steady", category: "passion" },
-                    { text: "Intense and all-consuming", value: "intense", category: "passion" },
-                    { text: "Playful and lighthearted", value: "playful", category: "passion" },
-                    { text: "Driven by strong ideals", value: "idealistic", category: "passion" },
-                    { text: "Unpredictable and extreme", value: "extreme", category: "passion" },
-                    { text: "Profoundly thoughtful and emotional", value: "deep", category: "passion" },
-                    { text: "Analytical and intellectually rigorous", value: "cerebral", category: "passion" }
-                ]
-            },
-            {
-                id: "q5",
-                text: "When facing a difficult decision, you typically:",
-                options: [
-                    { text: "Follow proven traditions and established methods", value: "traditional", category: "decision" },
-                    { text: "Take bold, unexpected actions that others might find shocking", value: "provocative", category: "decision" },
-                    { text: "Analyze all options methodically before choosing", value: "disciplined", category: "decision" },
-                    { text: "Trust your gut instinct and creative inspiration", value: "experimental", category: "decision" },
-                    { text: "Consult widely and seek consensus", value: "harmonious", category: "decision" }
-                ]
+        // Remove any duplicate Chileans by name
+        const uniqueChileans = [];
+        const seenNames = new Set();
+        
+        chileans.forEach(chilean => {
+            if (!seenNames.has(chilean.name)) {
+                seenNames.add(chilean.name);
+                uniqueChileans.push(chilean);
             }
-        ];
-        
-        // Variables to track questionnaire state
-        let currentQuestion = 0;
-        const totalQuestions = questions.length;
-        let userTraits = {};
-        let selectedChilean = null;
-        
-        // Initialize the gallery
-        function initGallery() {
-            const galleryGrid = document.getElementById('gallery-grid');
-            galleryGrid.innerHTML = '';
-            
-            // Create a gallery item for each Chilean
-            chileans.forEach((chilean, index) => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                galleryItem.setAttribute('data-category', chilean.category);
-                
-                const img = document.createElement('img');
-                img.src = chilean.image;
-                img.alt = chilean.name;
-                img.onerror = function() {
-                    this.src = '/api/placeholder/200/200';
-                };
-                
-                const categoryBadge = document.createElement('div');
-                categoryBadge.className = 'gallery-item-category';
-                categoryBadge.textContent = chilean.category.replace('_', ' ');
-                
-                const content = document.createElement('div');
-                content.className = 'gallery-item-content';
-                
-                const name = document.createElement('div');
-                name.className = 'gallery-item-name';
-                name.textContent = chilean.name;
-                
-                content.appendChild(name);
-                
-                galleryItem.appendChild(img);
-                galleryItem.appendChild(categoryBadge);
-                galleryItem.appendChild(content);
-                
-                // Add event listener to show Chilean details
-                galleryItem.addEventListener('click', function() {
-                    showChileanDetails(chilean);
-                });
-                
-                galleryGrid.appendChild(galleryItem);
-            });
-            
-            // Add filter functionality
-            document.querySelectorAll('.filter-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.filter-button').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    const category = this.getAttribute('data-category');
-                    
-                    // Filter gallery items
-                    document.querySelectorAll('.gallery-item').forEach(item => {
-                        if (category === 'all' || item.getAttribute('data-category') === category) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Add search functionality
-            const searchBox = document.getElementById('search-box');
-            searchBox.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    const name = item.querySelector('.gallery-item-name').textContent.toLowerCase();
-                    
-                    if (name.includes(searchTerm)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        }
-        
-        // Show Chilean details in modal
-        function showChileanDetails(chilean) {
-            document.getElementById('modal-image').src = chilean.image;
-            document.getElementById('modal-image').alt = chilean.name;
-            document.getElementById('modal-name').textContent = chilean.name;
-            document.getElementById('modal-zodiac').textContent = chilean.zodiac;
-            document.getElementById('modal-category').textContent = chilean.category.replace('_', ' ');
-            document.getElementById('modal-description').textContent = chilean.description;
-            
-            // Store the selected Chilean for later use
-            selectedChilean = chilean;
-            
-            // Show the modal
-            document.getElementById('chilean-modal').style.display = 'flex';
-        }
-        
-        // Create question containers
-        function createQuestions() {
-            const questionsArea = document.getElementById('questions-area');
-            questionsArea.innerHTML = '';
-            
-            questions.forEach((question) => {
-                const questionContainer = document.createElement('div');
-                questionContainer.className = 'question-container';
-                questionContainer.id = question.id;
-                
-                const questionText = document.createElement('div');
-                questionText.className = 'question';
-                questionText.textContent = question.text;
-                questionContainer.appendChild(questionText);
-                
-                const optionsContainer = document.createElement('div');
-                optionsContainer.className = 'options';
-                
-                // Shuffle options for more variety
-                const shuffledOptions = shuffleArray([...question.options]);
-                
-                shuffledOptions.forEach((option) => {
-                    const optionElement = document.createElement('div');
-                    optionElement.className = 'option';
-                    optionElement.textContent = option.text;
-                    optionElement.setAttribute('data-value', option.value);
-                    optionElement.setAttribute('data-category', option.category);
-                    
-                    optionElement.addEventListener('click', function() {
-                        // Remove 'selected' class from all options in this question
-                        questionContainer.querySelectorAll('.option').forEach(opt => {
-                            opt.classList.remove('selected');
-                        });
-                        
-                        // Add 'selected' class to clicked option
-                        this.classList.add('selected');
-                        
-                        // Enable next button
-                        document.getElementById('next-button').disabled = false;
-                    });
-                    
-                    optionsContainer.appendChild(optionElement);
-                });
-                
-                questionContainer.appendChild(optionsContainer);
-                questionsArea.appendChild(questionContainer);
-            });
-        }
-        
-        // Fisher-Yates shuffle algorithm for options
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-        
-        // Show a specific question
-        function showQuestion(index) {
-            // Hide all questions
-            document.querySelectorAll('.question-container').forEach(q => {
-                q.style.display = 'none';
-            });
-            
-            // Show current question
-            document.getElementById(questions[index].id).style.display = 'block';
-            
-            // Update question counter
-            document.getElementById('current-question-label').textContent = `${index + 1} of ${totalQuestions}`;
-            
-            // Enable/disable back button
-            document.getElementById('back-button').disabled = (index === 0);
-            
-            // Check if option already selected
-            const selectedOption = document.getElementById(questions[index].id).querySelector('.option.selected');
-            document.getElementById('next-button').disabled = !selectedOption;
-        }
-        
-        // Update progress bar
-        function updateProgressBar() {
-            const progress = ((currentQuestion + 1) / totalQuestions) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
-        }
-        
-        // Find matching Chilean
-        function findMatchingChilean(traits) {
-            let matchScores = chileans.map(chilean => {
-                let score = 0;
-                let matchedTraits = [];
-                let matchReasons = [];
-                
-                // Score direct trait matches
-                for (const category in traits) {
-                    if (chilean.traits[category] === traits[category]) {
-                        score += 10;
-                        matchedTraits.push({
-                            category: category,
-                            value: traits[category],
-                            match: "exact"
-                        });
-                        matchReasons.push(`Your ${category} style (${traits[category]}) exactly matches ${chilean.name}'s approach to life.`);
-                    }
-                    // Score related traits
-                    else if (chilean.relatedTraits && 
-                             chilean.relatedTraits[category] && 
-                             chilean.relatedTraits[category].includes(traits[category])) {
-                        score += 5;
-                        matchedTraits.push({
-                            category: category,
-                            value: traits[category],
-                            related: true
-                        });
-                        matchReasons.push(`Your ${category} (${traits[category]}) resonates with ${chilean.name}'s personality.`);
-                    }
-                }
-                
-                // Add some randomness for more variety (but still weighted toward best matches)
-                score += Math.random() * 2;
-                
-                return {
-                    chilean: chilean,
-                    score: score,
-                    matchedTraits: matchedTraits,
-                    matchReasons: matchReasons
-                };
-            });
-            
-            // Sort by score (highest first)
-            matchScores.sort((a, b) => b.score - a.score);
-            
-            // Return the best match
-            return matchScores[0];
-        }
-        
-        // Show result profile
-        function showResult() {
-            const bestMatch = findMatchingChilean(userTraits);
-            const chilean = bestMatch.chilean;
-            
-            // Update profile information
-            document.getElementById('chilean-image').src = chilean.image;
-            document.getElementById('chilean-image').alt = chilean.name;
-            document.getElementById('chilean-name').textContent = chilean.name;
-            document.getElementById('chilean-zodiac').textContent = chilean.zodiac;
-            document.getElementById('chilean-description').textContent = chilean.description;
-            
-            // Set category badge
-            const categoryBadge = document.getElementById('chilean-category');
-            if (categoryBadge) {
-                categoryBadge.textContent = chilean.category.replace('_', ' ');
-            }
-            
-            // Generate match explanation
-            let matchExplanation = `You and ${chilean.name} share a similar outlook on life. `;
-            
-            if (bestMatch.matchReasons.length > 0) {
-                // Add a couple of random reasons for the match
-                const selectedReasons = shuffleArray([...bestMatch.matchReasons]).slice(0, Math.min(2, bestMatch.matchReasons.length));
-                matchExplanation += selectedReasons.join(' ');
-            }
-            
-            document.getElementById('match-explanation').textContent = matchExplanation;
-            
-            // Add matched traits
-            const matchTraitsContainer = document.getElementById('match-traits');
-            matchTraitsContainer.innerHTML = '';
-            
-            bestMatch.matchedTraits.forEach(trait => {
-                const traitBadge = document.createElement('div');
-                traitBadge.className = 'trait-badge';
-                traitBadge.textContent = trait.value;
-                matchTraitsContainer.appendChild(traitBadge);
-            });
-            
-            // Display the profile
-            document.getElementById('profile').style.display = 'flex';
-        }
-        
-        // Set up event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Start button
-            document.getElementById('start-button').addEventListener('click', function() {
-                document.getElementById('intro-container').style.display = 'none';
-                document.getElementById('quiz-container').style.display = 'block';
-                createQuestions();
-                showQuestion(0);
-                updateProgressBar();
-            });
-            
-            // View gallery button
-            document.getElementById('view-gallery-button').addEventListener('click', function() {
-                document.getElementById('intro-container').style.display = 'none';
-                document.getElementById('gallery-container').style.display = 'flex';
-                initGallery();
-            });
-            
-            // Back to intro button
-            document.getElementById('back-to-intro-button').addEventListener('click', function() {
-                document.getElementById('gallery-container').style.display = 'none';
-                document.getElementById('intro-container').style.display = 'block';
-            });
-            
-            // Close modal button
-            document.getElementById('close-modal').addEventListener('click', function() {
-                document.getElementById('chilean-modal').style.display = 'none';
-            });
-            
-            // Choose Chilean button
-            document.getElementById('choose-chilean-button').addEventListener('click', function() {
-                if (selectedChilean) {
-                    document.getElementById('chilean-modal').style.display = 'none';
-                    document.getElementById('gallery-container').style.display = 'none';
-                    
-                    // Update profile information
-                    document.getElementById('chilean-image').src = selectedChilean.image;
-                    document.getElementById('chilean-image').alt = selectedChilean.name;
-                    document.getElementById('chilean-name').textContent = selectedChilean.name;
-                    document.getElementById('chilean-zodiac').textContent = selectedChilean.zodiac;
-                    document.getElementById('chilean-description').textContent = selectedChilean.description;
-                    
-                    // Set category badge
-                    const categoryBadge = document.getElementById('chilean-category');
-                    if (categoryBadge) {
-                        categoryBadge.textContent = selectedChilean.category.replace('_', ' ');
-                    }
-                    
-                    // Clear match traits
-                    document.getElementById('match-traits').innerHTML = '';
-                    
-                    // Set match explanation
-                    document.getElementById('match-explanation').textContent = `You've chosen ${selectedChilean.name} as your Chilean spirit guide. A bold choice that reveals your excellent taste!`;
-                    
-                    // Display the profile
-                    document.getElementById('profile').style.display = 'flex';
-                }
-            });
-            
-            // Next button
-            document.getElementById('next-button').addEventListener('click', function() {
-                const currentQuestionElement = document.getElementById(questions[currentQuestion].id);
-                const selectedOption = currentQuestionElement.querySelector('.option.selected');
-                
-                if (!selectedOption) {
-                    alert('Please select an option to continue.');
-                    return;
-                }
-                
-                // Store the selected trait
-                const traitCategory = selectedOption.getAttribute('data-category');
-                const traitValue = selectedOption.getAttribute('data-value');
-                userTraits[traitCategory] = traitValue;
-                
-                currentQuestionElement.style.display = 'none';
-                
-                if (currentQuestion < totalQuestions - 1) {
-                    currentQuestion++;
-                    showQuestion(currentQuestion);
-                    updateProgressBar();
-                } else {
-                    // Show result
-                    document.getElementById('quiz-container').style.display = 'none';
-                    showResult();
-                }
-            });
-            
-            // Back button
-            document.getElementById('back-button').addEventListener('click', function() {
-                if (currentQuestion > 0) {
-                    // Hide current question
-                    document.getElementById(questions[currentQuestion].id).style.display = 'none';
-                    
-                    // Show previous question
-                    currentQuestion--;
-                    showQuestion(currentQuestion);
-                    updateProgressBar();
-                    
-                    // Disable back button if at first question
-                    this.disabled = (currentQuestion === 0);
-                }
-            });
-            
-            // Restart button
-            document.getElementById('restart-button').addEventListener('click', function() {
-                // Reset quiz
-                document.getElementById('profile').style.display = 'none';
-                document.getElementById('intro-container').style.display = 'block';
-                currentQuestion = 0;
-                userTraits = {};
-                
-                // Clear match traits
-                document.getElementById('match-traits').innerHTML = '';
-            });
-            
-            // Share button
-            document.getElementById('share-button').addEventListener('click', function() {
-                const chileanName = document.getElementById('chilean-name').textContent;
-                alert(`I got matched with ${chileanName} as my Chilean Spirit Guide!`);
-            });
-            
-            // Handle fallback for missing images
-            window.addEventListener('error', function(e) {
-                if (e.target.tagName.toLowerCase() === 'img') {
-                    e.target.src = '/api/placeholder/250/250';
-                }
-            }, true);
         });
-    </script>
-</body>
-</html>politics: ["revolutionary"],
-                    passion: ["deep", "cerebral"]
-                }
-            },
-            {
-                name: "Diamela Eltit",
-                image: "images/diamela-eltit.jpg",
-                description: "The experimental novelist who once cut herself in a brothel and called it performance art. Her dense, fragmented prose drove the dictators crazy because they couldn't understand it well enough to censor it. Academics worldwide go gaga for her.",
-                zodiac: "Virgo (August 24, 1947)",
-                category: "literary",
-                traits: {
-                    demeanor: "provocative",
-                    expression: "provocative",
-                    politics: "revolutionary",
-                    passion: "extreme"
-                },
-                relatedTraits: {
-                    demeanor: ["intense"],
-                    expression: ["experimental", "complex"],
-                    politics: ["chaotic", "artistic"],
-                    passion: ["intense", "cerebral"]
-                }
-            },
-            {
-                name: "Alone (Hernán Díaz Arrieta)",
-                image: "images/alone.jpg",
-                description: "The acid-tongued literary critic whose weekly column could make or break a writer's career. His devastating pen name says it all—forever alone with his judgmental opinions. Could dismiss an author's entire life's work with a single snarky paragraph. The Simon Cowell of Chilean letters.",
-                zodiac: "Taurus (May 11, 1891)",
-                category: "literary",
-                traits: {
-                    demeanor: "confrontational",
-                    expression: "disciplined",
-                    politics: "traditional",
-                    passion: "cerebral"
-                },
-                relatedTraits: {
-                    demeanor: ["provocative"],
-                    expression: ["ironic"],
-                    politics: ["chaotic"],
-                    passion: ["intense"]
-                }
-            },
-            {
-                name: "Elvira Hernández",
-                image: "images/elvira-hernandez.jpg",
-                description: "The dissident poet who wrote 'La bandera de Chile' after being detained by Pinochet's secret police. Her samizdat verses circulated underground for a decade before publishing. Took a pen name to avoid further persecution. Refuses to call herself neo-avant-garde.",
-                zodiac: "Cancer (July 2, 1951)",
-                category: "literary",
-                traits: {
-                    demeanor: "reserved",
-                    expression: "provocative",
-                    politics: "revolutionary",
-                    passion: "idealistic"
-                },
-                relatedTraits: {
-                    demeanor: ["intense"],
-                    expression: ["experimental", "complex"],
-                    politics: ["chaotic", "artistic"],
-                    passion: ["deep", "extreme"]
-                }
-            },
-            {
-                name: "Bruno Vidal",
-                image: "images/bruno-vidal.jpg",
-                description: "The poet who adopted the persona of a fascist torturer to expose Chile's collective trauma. His meticulously crafted right-wing psychopath act fooled many into thinking he was actually a monster. Literary performance art at its most disturbing and brilliant.",
-                zodiac: "Unknown (birth date classified)",
-                category: "literary",
-                traits: {
-                    demeanor: "provocative",
-                    expression: "provocative",
-                    politics: "chaotic",
-                    passion: "extreme"
-                },
-                relatedTraits: {
-                    demeanor: ["intense", "confrontational"],
-                    expression: ["experimental", "ironic"],
-                    politics: ["revolutionary", "artistic"],
-                    passion: ["intense", "cerebral"]
-                }
-            },
-            // Musical Figures
-            {
-                name: "Violeta Parra",
-                image: "images/violeta-parra.jpg",
-                description: "The quintessential Chilean folk singer, a poet of singular lucidity, a lover of unbridled passion, and perhaps the most influential Chilean artist of the 20th century. A favorite Chilean if there ever was one.",
-                zodiac: "Libra (October 4, 1917)",
-                category: "musical",
-                traits: {
-                    demeanor: "composed",
-                    expression: "poetic",
-                    politics: "harmonious",
-                    passion: "deep"
-                },
-                relatedTraits: {
-                    demeanor: ["reserved", "intense"],
-                    expression: ["disciplined", "popular"],
-                    politics: ["artistic", "revolutionary"],
-                    passion: ["intense", "idealistic"]
-                }
-            },
-            {
-                name: "Víctor Jara",
-                image: "images/victor-jara.jpg",
-                description: "The folk singer who became a martyr when Pinochet's goons killed him in the national stadium after breaking his hands. Now the ultimate t-shirt icon and the name dropped by every leftist trying to seem cultured. His music actually slaps though.",
-                zodiac: "Virgo (September 28, 1932)",
-                category: "musical",
-                traits: {
-                    demeanor: "composed",
-                    expression: "popular",
-                    politics: "revolutionary",
-                    passion: "idealistic"
-                },
-                relatedTraits: {
-                    demeanor: ["intense", "provocative"],
-                    expression: ["poetic", "disciplined"],
-                    politics: ["artistic", "chaotic"],
-                    passion: ["deep", "extreme"]
-                }
-            },
-            {
-                name: "Mon Laferte",
-                image: "images/mon-laferte.jpg",
-                description: "The tattooed chanteuse who went from Chilean talent show contestant to Latin Grammy winner. Bounces between rock, bolero, and ranchera like she's channel surfing. Will protest topless if the situation demands it. We stan a versatile queen.",
-                zodiac: "Taurus (May 2, 1983)",
-                category: "musical",
-                traits: {
-                    demeanor: "provocative",
-                    expression: "experimental",
-                    politics: "revolutionary",
-                    passion: "intense"
-                },
-                relatedTraits: {
-                    demeanor: ["expressive"],
-                    expression: ["popular", "poetic"],
-                    politics: ["artistic", "chaotic"],
-                    passion: ["deep", "extreme"]
-                }
-            },
-            {
-                name: "Jorge González",
-                image: "images/jorge-gonzalez.jpg",
-                description: "Fearless frontman of Los Prisioneros who wrote anthems of resistance during the Pinochet era. Part punk prophet, part electronic pioneer, he's suffered a stroke but refuses to die. The most important voice in Chilean rock, even when he can barely speak.",
-                zodiac: "Sagittarius (December 6, 1964)",
-                category: "musical",
-                traits: {
-                    demeanor: "confrontational",
-                    expression: "provocative",
-                    politics: "revolutionary",
-                    passion: "idealistic"
-                },
-                relatedTraits: {
-                    demeanor: ["intense", "provocative"],
-                    expression: ["experimental", "poetic"],
-                    politics: ["chaotic"],
-                    passion: ["extreme", "deep"]
-                }
-            },
-            {
-                name: "Ana Tijoux",
-                image: "images/ana-tijoux.jpg",
-                description: "The French-Chilean hip-hop firebrand whose socially conscious lyrics have been called the spiritual heir to Violeta Parra. Raps about feminism, inequality, and imperialism while sampling Andean folk instruments. Made Latin America fall in love with hip-hop.",
-                zodiac: "Gemini (June 12, 1977)",
-                category: "musical",
-                traits: {
-                    demeanor: "provocative",
-                    expression: "popular",
-                    politics: "revolutionary",
-                    passion: "idealistic"
-                },
-                relatedTraits: {
-                    demeanor: ["composed", "intense"],
-                    expression: ["poetic", "experimental"],
-                    politics: ["artistic", "chaotic"],
-                    passion: ["deep", "extreme"]
-                }
-            },
-            {
-                name: "Margot Loyola",
-                image: "images/margot-loyola.jpg",
-                description: "The formidable folklorist who traveled every inch of Chile documenting traditional music and dances when no one else cared. Performed and taught for seven decades. Made cuecas cool before it was cool. The spiritual grandmother to Víctor Jara and all Chilean folk.",
-                zodiac: "Virgo (September 15, 1918)",
-                category: "musical",
-                traits: {
-                    demeanor: "composed",
-                    expression: "disciplined",
-                    politics: "traditional",
-                    passion: "steady"
-                },
-                relatedTraits: {
-                    demeanor: ["reserved"],
-                    expression: ["popular"],
-                    politics: ["harmonious", "artistic"],
-                    passion: ["deep", "idealistic"]
-                }
-            },
-            {
-                name: "Pailita",
-                image: "images/pailita.jpg",
-                description: "The Gen Z icon who went from recording songs on his phone to headlining festivals. His street cred is only matched by his ability to make middle-aged Chileans say 'what is that noise?' A cultural reset in a snapback.",
-                zodiac: "Taurus (May 4, 2000)",
-                category: "musical",
-                traits: {
-                    demeanor: "provocative",
-                    expression: "experimental",
-                    politics: "chaotic",
-                    passion: "playful"
-                },
-                relatedTraits: {
-                    demeanor: ["expressive", "confrontational"],
-                    expression: ["popular"],
-                    politics: ["revolutionary"],
-                    passion: ["intense", "extreme"]
-                }
-            },
-            // Visual Artists
-            {
-                name: "Roberto Matta",
-                image: "images/roberto-matta.jpg",
-                description: "Chile's best 20th century painter. 'Nuff said.",
-                zodiac: "Scorpio (November 11, 1911)",
-                category: "visual_artist",
-                traits: {
-                    demeanor: "reserved",
-                    expression: "experimental",
-                    politics: "artistic",
-                    passion: "intense"
-                },
-                relatedTraits: {
-                    demeanor: ["composed", "intense"],
-                    expression: ["grandiose", "surreal"],
-                    politics: ["revolutionary", "chaotic"],
-                    passion: ["deep", "extreme"]
-                }
-            },
-           {
-                name: "Cecilia Vicuña",
-                image: "images/cecilia-vicuna.jpg",
-                description: "One of Chile's top experimental poets became one of New York's top experimental visual artists.",
-                zodiac: "Capricorn (January 22, 1948)",
-                category: "visual_artist",
-                traits: {
-                    demeanor: "reserved",
-                    expression: "experimental",
-                    politics: "artistic",
-                    passion: "idealistic"
-                },
-                relatedTraits: {
-                    demeanor: ["composed"],
-                    expression: ["poetic", "complex"],
-                    politics: ["revolutionary", "harmonious"],
-                    passion: ["deep", "cerebral"]
-                }
-            },
-            {
-                name: "Alejandro Jodorowsky",
-                image: "images/alejandro-jodorowsky.jpg",
-                description: "Deranged, or a genius? A French comics writer, an American experimental filmmaker, and a psycho-magician who uses tarot and his personality disorder to heal people, and charges a pretty penny for it.",
-                zodiac: "Pisces (February 17, 1929)",
-                category: "visual_artist",
-                traits: {
-                    demeanor: "provocative",
-                    expression: "experimental",
-                    politics: "chaotic",
-                    passion: "extreme"
-                },
-                relatedTraits: {
-                    demeanor: ["intense", "confrontational"],
-                    expression: ["surreal", "grandiose"],
-                    politics: ["artistic", "revolutionary"],
-                    passion: ["intense", "deep"]
-                }
-            },
-            {
-                name: "Merkén",
-                image: "images/merken.jpg",
-                description: "Not a person but a spice that deserves personhood. This smoky Mapuche chile blend is the taste of Chilean identity in powdered form. Has colonized kitchens worldwide with its addictive flavor profile. The ultimate condiment flex—just try not to inhale while sprinkling.",
-                zodiac: "N/A (Eternal Being of Flavor)",
-                category: "unique",
-                traits: {
-                    demeanor: "provocative",
-                    expression: "provocative",
-                    politics: "indigenous",
-                    passion: "intense"
-                },
-                relatedTraits: {
-                    demeanor: ["intense", "expressive"],
-                    expression: ["experimental", "popular"],
-                    politics: ["artistic", "revolutionary"],
-                    passion: ["deep", "extreme"]
-                }
-            }
-        ];
+        
+        // Replace the original array with the deduplicated array
+        const chileans = uniqueChileans;
         
         // Question configurations - enhanced with more nuanced options
         const questions = [
@@ -1954,6 +1485,11 @@
             document.getElementById('modal-category').textContent = chilean.category.replace('_', ' ');
             document.getElementById('modal-description').textContent = chilean.description;
             
+            // Add error handling for modal image
+            document.getElementById('modal-image').onerror = function() {
+                this.src = '/api/placeholder/250/250';
+            };
+            
             // Store the selected Chilean for later use
             selectedChilean = chilean;
             
@@ -2108,6 +1644,11 @@
             document.getElementById('chilean-zodiac').textContent = chilean.zodiac;
             document.getElementById('chilean-description').textContent = chilean.description;
             
+            // Add error handling for result image
+            document.getElementById('chilean-image').onerror = function() {
+                this.src = '/api/placeholder/250/250';
+            };
+            
             // Set category badge
             const categoryBadge = document.getElementById('chilean-category');
             if (categoryBadge) {
@@ -2167,6 +1708,14 @@
             // Close modal button
             document.getElementById('close-modal').addEventListener('click', function() {
                 document.getElementById('chilean-modal').style.display = 'none';
+            });
+            
+            // When clicking outside the modal content, close the modal
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('chilean-modal');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
             });
             
             // Choose Chilean button
