@@ -214,116 +214,42 @@
     <script src="chilean-figures.js"></script>
     
     <script>
-        
-        // DOM elements
-        const randomizeButton = document.getElementById('randomizeButton');
-        const browseButton = document.getElementById('browseButton');
-        const randomFigureDiv = document.getElementById('randomFigure');
-        const galleryDiv = document.getElementById('gallery');
-        const galleryContainer = document.getElementById('galleryContainer');
-        const modal = document.getElementById('figureModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeButton = document.querySelector('.close-button');
-        
-        // Event listeners
-        randomizeButton.addEventListener('click', showRandomFigure);
-        browseButton.addEventListener('click', showGallery);
-        closeButton.addEventListener('click', () => modal.style.display = 'none');
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
+        // Wait for the DOM and external scripts to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if chileanFigures is defined
+            if (typeof chileanFigures === 'undefined') {
+                console.error('Error: chileanFigures is not defined. Make sure chilean-figures.js is loaded correctly.');
+                return;
             }
-        });
-        
-        // Initialize the gallery
-        function initGallery() {
-            galleryContainer.innerHTML = '';
             
-            chileanFigures.forEach((figure, index) => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                galleryItem.dataset.index = index;
-                galleryItem.addEventListener('click', () => showFigureDetails(index));
-                
-                const img = document.createElement('img');
-                img.src = figure.image;
-                img.alt = figure.name;
-                img.className = 'gallery-image';
-                
-                const name = document.createElement('div');
-                name.className = 'gallery-name';
-                name.textContent = figure.name;
-                
-                galleryItem.appendChild(img);
-                galleryItem.appendChild(name);
-                galleryContainer.appendChild(galleryItem);
+            // DOM elements
+            const randomizeButton = document.getElementById('randomizeButton');
+            const browseButton = document.getElementById('browseButton');
+            const randomFigureDiv = document.getElementById('randomFigure');
+            const galleryDiv = document.getElementById('gallery');
+            const galleryContainer = document.getElementById('galleryContainer');
+            const modal = document.getElementById('figureModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeButton = document.querySelector('.close-button');
+            
+            // Event listeners
+            randomizeButton.addEventListener('click', showRandomFigure);
+            browseButton.addEventListener('click', showGallery);
+            closeButton.addEventListener('click', () => modal.style.display = 'none');
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
             });
-        }
         
-        // Show random figure
-        function showRandomFigure() {
-            const randomIndex = Math.floor(Math.random() * chileanFigures.length);
-            const figure = chileanFigures[randomIndex];
-            
-            randomFigureDiv.style.display = 'block';
-            galleryDiv.style.display = 'none';
-            
-            randomFigureDiv.innerHTML = createFigureCard(figure);
-            
-            const backButton = document.createElement('button');
-            backButton.textContent = 'Back to Menu';
-            backButton.className = 'back-button';
-            backButton.addEventListener('click', showMainMenu);
-            randomFigureDiv.appendChild(backButton);
-        }
         
-        // Show gallery
-        function showGallery() {
-            randomFigureDiv.style.display = 'none';
-            galleryDiv.style.display = 'block';
-            
-            initGallery();
-            
-            const backButton = document.createElement('button');
-            backButton.textContent = 'Back to Menu';
-            backButton.className = 'back-button';
-            backButton.addEventListener('click', showMainMenu);
-            galleryDiv.appendChild(backButton);
-        }
+        // The Pedro Lemebel and Vicente Huidobro data has been moved to the chilean-figures.js file
         
-        // Show main menu
-        function showMainMenu() {
-            randomFigureDiv.style.display = 'none';
-            galleryDiv.style.display = 'none';
-        }
-        
-        // Show figure details in modal
-        function showFigureDetails(index) {
-            const figure = chileanFigures[index];
-            modalContent.innerHTML = createFigureCard(figure);
-            modal.style.display = 'block';
-        }
-        
-        // Create figure card HTML
-        function createFigureCard(figure) {
-            let traitsHTML = '';
-            figure.traits.forEach(trait => {
-                traitsHTML += `<span class="trait">${trait}</span>`;
-            });
-            
-            return `
-                <div class="figure-card">
-                    <img src="${figure.image}" alt="${figure.name}" class="figure-image">
-                    <div class="figure-info">
-                        <h2>${figure.name}</h2>
-                        <div class="zodiac">${figure.zodiac}</div>
-                        <p>${figure.description}</p>
-                        <div class="key-traits">
-                            ${traitsHTML}
-                        </div>
-                    </div>
-                </div>
-            `;
+        // Parse the Chilean figures data from the document
+        function parseChileanData() {
+            // This function would parse your text data into the appropriate format
+            // Since you'll be adding this manually, you can leave it empty
+            // or implement it later if you want to automate the process
         }
 
         // Parse the Chilean figures data from the document
