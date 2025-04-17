@@ -109,7 +109,7 @@ const chileanFigures = [
     name: "Bruno Vidal",
     image: "images/bruno-vidal.jpeg",
     zodiac: "Unknown (birth date classified)",
-    description: "The poet who adopted the persona of a fascist writer to expose Chile's collective trauma. His meticulously crafted right-wing psychopath act fooled many into thinking he was actually a monster. I'm still not sure whether it's an act or not.",
+    description: "The poet who adopted the persona of a fascist writer to expose Chile's collective trauma. His meticulously crafted right-wing poetry fooled many into thinking he was actually a monster. If you act like a fool for 30 years, do you become one?",
     traits: ["Provocative demeanor", "Provocative expression", "Chaotic politics", "Extreme passion"],
     category: "Literary Figures"
   },
