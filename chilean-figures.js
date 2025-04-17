@@ -13,7 +13,7 @@ const chileanFigures = [
     name: "Isabel Allende",
     image: "images/isabel-allende.jpeg",
     zodiac: "Leo (August 2, 1942)",
-    description: "In the grand tradition of Corín Tellado, Allende writes to inspire the Latin American masses. Her style is Miami billionaire. Like most people in the god-forsaken state of Florida, she has a bias in favor of color.",
+    description: "In the grand tradition of Corín Tellado, Allende writes to inspire the Latin American masses. Her fashion style is Miami billionaire. Like most people in the god-forsaken state of Florida, she has slowly turned anti-woke.",
     traits: ["Expressive demeanor", "Popular expression", "Traditional politics", "Steady passion"],
     category: "Literary Figures"
   },
